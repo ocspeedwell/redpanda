@@ -1,3 +1,95 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Redpanda Technologies Ltd</title><link rel="icon" href="assets/favicon.ico"><style>
-*{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden;background:#020305;font-family:Arial}.s{position:fixed;inset:0;background:#020305}.bg,.art{position:absolute;inset:0;background:url("assets/redpanda-landing.png") center/cover no-repeat}.bg{inset:-4%;filter:blur(18px) brightness(.3);opacity:.75;animation:bg 2s forwards}.art{background-size:contain;opacity:0;transform:scale(1.12);filter:blur(10px);animation:reveal 1.8s .1s cubic-bezier(.16,1,.3,1) forwards}.v{position:absolute;inset:0;background:radial-gradient(circle,transparent 35%,#000b 100%)}.sweep{position:absolute;top:-30%;left:-50%;width:35%;height:160%;background:linear-gradient(90deg,transparent,#ffffff30,#ff351825,transparent);transform:rotate(18deg);filter:blur(15px);animation:sweep 5s 1.5s infinite}.scan{position:absolute;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,#ff3c28,#fff,transparent);animation:scan 5s 2s infinite;opacity:0}.particles i{position:absolute;width:5px;height:5px;background:#ff3c28;box-shadow:0 0 14px #ff3c28;animation:float 4s infinite;opacity:0}.particles i:nth-child(1){left:20%;top:30%}.particles i:nth-child(2){left:27%;top:60%;animation-delay:1s}.particles i:nth-child(3){left:74%;top:30%;animation-delay:1.6s}.particles i:nth-child(4){left:79%;top:62%;animation-delay:.6s}.enter{position:absolute;z-index:4;left:50%;bottom:7.8%;transform:translateX(-50%) translateY(12px);width:235px;height:58px;border:1px solid #ff735f;border-radius:35px;background:#16050499;color:#fff;letter-spacing:.38em;cursor:pointer;opacity:0;animation:show .7s 1.9s forwards;transition:.3s}.enter:hover{background:#ef3024;box-shadow:0 0 35px #ff351899;letter-spacing:.48em}.s.exit{animation:exit .75s forwards}@keyframes reveal{to{opacity:1;transform:scale(1);filter:none}}@keyframes bg{to{transform:scale(1.05)}}@keyframes sweep{from{left:-50%}to{left:120%}}@keyframes scan{0%{top:10%;opacity:0}20%{opacity:.5}75%{top:88%;opacity:0}100%{opacity:0}}@keyframes float{0%,100%{opacity:0;transform:translateY(30px)}40%{opacity:.8}80%{transform:translate(30px,-40px)}}@keyframes show{to{opacity:1;transform:translateX(-50%) translateY(0)}}@keyframes exit{to{opacity:0;transform:scale(1.08);filter:blur(10px)}}@media(max-width:700px){.art{background-size:cover}.enter{bottom:8%}}
-</style></head><body><main class="s" id="s"><div class="bg"></div><div class="art"></div><div class="v"></div><div class="sweep"></div><div class="scan"></div><div class="particles"><i></i><i></i><i></i><i></i></div><button class="enter" id="e">ENTER &nbsp;→</button></main><script>let b=0;function go(){if(b)return;b=1;document.getElementById("s").classList.add("exit");setTimeout(()=>location.href="home.html",700)}document.getElementById("e").onclick=go;document.onkeydown=x=>{if(x.key==="Enter")go()}</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#020305">
+<title>Redpanda Technologies Ltd | Engineering Tomorrow</title>
+<link rel="icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;background:#020305;overflow:hidden;font-family:Arial,sans-serif}
+:root{--red:#f33a26}
+.splash{position:fixed;inset:0;display:grid;place-items:center;background:#020305;isolation:isolate}
+.ambient{position:absolute;inset:-6%;background:url("assets/redpanda-landing-clean.png") center/cover no-repeat;filter:blur(24px) brightness(.24) saturate(1.15);opacity:.72;transform:scale(1.08);animation:ambient 8s ease-in-out infinite alternate}
+.art-shell{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:18px 28px 118px}
+.art{width:100%;height:100%;background:url("assets/redpanda-landing-clean.png") center/contain no-repeat;opacity:0;transform:scale(1.08);filter:blur(10px) brightness(.65);animation:reveal 1.8s .12s cubic-bezier(.16,1,.3,1) forwards;will-change:transform}
+.vignette{position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,transparent 36%,rgba(0,0,0,.18) 67%,rgba(0,0,0,.72) 100%);pointer-events:none}
+.floor-glow{position:absolute;left:18%;right:18%;bottom:5%;height:15%;background:radial-gradient(ellipse,rgba(255,42,20,.2),transparent 70%);filter:blur(30px);animation:pulse 3.5s ease-in-out infinite}
+.sweep{position:absolute;top:-30%;left:-45%;width:32%;height:170%;background:linear-gradient(90deg,transparent,rgba(255,75,45,.05),rgba(255,255,255,.18),rgba(255,50,25,.08),transparent);transform:rotate(17deg);filter:blur(16px);animation:sweep 6s 1.4s ease-in-out infinite}
+.scan{position:absolute;left:10%;right:10%;height:1px;top:10%;background:linear-gradient(90deg,transparent,rgba(255,55,30,.9),rgba(255,255,255,.7),transparent);opacity:0;animation:scan 5.5s 1.7s ease-in-out infinite}
+.particles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.particles i{position:absolute;width:5px;height:5px;background:var(--red);box-shadow:0 0 14px var(--red);opacity:0;animation:float var(--d) var(--delay) ease-in-out infinite}
+.particles i:nth-child(1){left:16%;top:31%;--d:5.4s;--delay:.2s}.particles i:nth-child(2){left:25%;top:57%;--d:6.1s;--delay:1.2s}.particles i:nth-child(3){left:73%;top:29%;--d:4.8s;--delay:.8s}.particles i:nth-child(4){left:81%;top:61%;--d:5.8s;--delay:1.7s}.particles i:nth-child(5){left:38%;top:17%;--d:6.3s;--delay:2s}.particles i:nth-child(6){left:66%;top:72%;--d:5.1s;--delay:.4s}
+.enter-wrap{position:absolute;z-index:5;left:50%;bottom:max(28px,env(safe-area-inset-bottom));transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px}
+.enter{width:230px;height:58px;border:1px solid rgba(255,99,73,.85);border-radius:34px;background:rgba(13,5,5,.68);backdrop-filter:blur(12px);color:#fff;font-weight:700;font-size:11px;letter-spacing:.4em;cursor:pointer;box-shadow:0 0 22px rgba(243,58,38,.26),inset 0 0 20px rgba(243,58,38,.08);opacity:0;transform:translateY(12px);animation:buttonIn .75s 1.8s forwards;transition:.3s}
+.enter:hover{background:var(--red);border-color:#ffc0b7;box-shadow:0 0 38px rgba(243,58,38,.72);letter-spacing:.48em;transform:scale(1.035)}
+.enter span{font-size:19px;margin-left:9px;vertical-align:-2px}
+.hint{font-size:6px;letter-spacing:.25em;color:#626770;opacity:0;animation:buttonIn .7s 2.1s forwards}
+.meta{position:absolute;z-index:5;color:#626770;font-size:7px;letter-spacing:.2em;line-height:1.7;opacity:0;animation:buttonIn .7s 2s forwards}.tl{top:22px;left:25px}.tr{top:22px;right:25px;text-align:right}
+.flash{position:absolute;inset:0;background:#f43b27;opacity:0;pointer-events:none}
+.splash.exit .art{animation:artOut .68s cubic-bezier(.7,0,.84,0) forwards}
+.splash.exit .ambient{animation:bgOut .72s forwards}
+.splash.exit .enter-wrap,.splash.exit .meta{opacity:0;transition:.2s}
+.splash.exit .flash{animation:flash .7s}
+@keyframes reveal{to{opacity:1;transform:scale(1);filter:blur(0) brightness(1)}}
+@keyframes ambient{to{transform:scale(1.14);filter:blur(26px) brightness(.3) saturate(1.25)}}
+@keyframes pulse{50%{opacity:.5;transform:scale(1.12)}}
+@keyframes sweep{0%{left:-45%;opacity:0}18%{opacity:.75}62%{opacity:.2}100%{left:120%;opacity:0}}
+@keyframes scan{0%{top:10%;opacity:0}18%{opacity:.5}68%{opacity:.12}82%,100%{top:86%;opacity:0}}
+@keyframes float{0%,100%{opacity:0;transform:translate(0,26px) rotate(0)}35%{opacity:.8}75%{opacity:.3}100%{transform:translate(34px,-45px) rotate(180deg)}}
+@keyframes buttonIn{to{opacity:1;transform:translateY(0)}}
+@keyframes artOut{to{opacity:0;transform:scale(1.12);filter:blur(13px) brightness(1.45)}}
+@keyframes bgOut{to{opacity:0;transform:scale(1.18)}}
+@keyframes flash{30%{opacity:.16}100%{opacity:0}}
+@media(max-width:700px){
+  .ambient{background-size:cover;opacity:.5}
+  .art-shell{padding:12px 8px 104px}
+  .art{background-size:contain;background-position:center center}
+  .enter-wrap{bottom:max(18px,env(safe-area-inset-bottom))}
+  .enter{width:205px;height:52px;font-size:10px}
+  .meta{font-size:5px}.tl{top:12px;left:12px}.tr{top:12px;right:12px}
+}
+@media(max-width:480px) and (orientation:portrait){
+  .art-shell{padding:36px 4px 116px}
+  .art{background-size:contain;background-position:center 44%}
+  .vignette{background:radial-gradient(circle at 50% 42%,transparent 28%,rgba(0,0,0,.2) 70%,rgba(0,0,0,.78) 100%)}
+  .enter-wrap{bottom:16px}
+}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-delay:0ms!important}.art,.enter,.hint,.meta{opacity:1;filter:none;transform:none}}
+</style>
+</head>
+<body>
+<main class="splash" id="splash">
+  <div class="ambient"></div>
+  <div class="art-shell"><div class="art" id="art"></div></div>
+  <div class="vignette"></div><div class="floor-glow"></div><div class="sweep"></div><div class="scan"></div>
+  <div class="particles"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="flash"></div>
+  <div class="meta tl">REDPANDA TECHNOLOGIES LTD<br>ENGINEERING TOMORROW</div>
+  <div class="meta tr">BUILD · CONNECT · SCALE<br>RP / 2026</div>
+  <div class="enter-wrap">
+    <button class="enter" id="enter" aria-label="Enter Redpanda Technologies website">ENTER <span>→</span></button>
+    <div class="hint">ENTER REDPANDA</div>
+  </div>
+</main>
+<script>
+let busy=false;
+const splash=document.getElementById("splash"), art=document.getElementById("art");
+function enterSite(){
+  if(busy)return;
+  busy=true;
+  splash.classList.add("exit");
+  setTimeout(()=>location.href="home.html",690);
+}
+document.getElementById("enter").addEventListener("click",enterSite);
+document.addEventListener("keydown",e=>{if(e.key==="Enter")enterSite()});
+if(matchMedia("(pointer:fine)").matches){
+  document.addEventListener("mousemove",e=>{
+    const x=(e.clientX/innerWidth-.5)*7, y=(e.clientY/innerHeight-.5)*5;
+    art.style.translate=`${x}px ${y}px`;
+  });
+}
+</script>
+</body></html>
